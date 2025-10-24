@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			ログイン画面
+		</title>
+		<link th:href="@{/user/css/userLogin.css}" rel="stylesheet">
+		<script th:src="@{/user/js/userLogin.js}" type="text/javascript">
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<h2>
+				ログイン画面
+			</h2>
+			<!-- ▼メッセージ表示エリア▼ -->
+			<div class="message">
+				<!-- ログインエラーメッセージ -->
+				<p class="message_error" th:if="${userLoginError}" th:text="${userLoginError}">
+				</p>
+				<!-- すでに登録済みメッセージ -->
+				<p class="message_already" th:if="${alreadyRegistered}" th:text="${alreadyRegistered}">
+				</p>
+				<!-- 登録成功メッセージ -->
+				<p class="message_success" th:if="${registrationSuccess}" th:text="${registrationSuccess}">
+				</p>
+			</div>
+			<!-- ▼ログインフォーム▼ -->
+			<form th:action="@{/userLogin}" th:object="${userLoginForm}" method="post">
+				<div class="input_text">
+					<div class="email">
+						<p class="email_title">
+							ルアドレス
+						</p>
+						<input type="email" name="email" th:field="*{email}" autocomplete="email">
+						<p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+						</p>
+					</div>
+					<div class="passwords">
+						<p class="passwords_title">
+							パスワード
+						</p>
+						<input type="password" name="passwords" th:field="*{passwords}" autocomplete="passwords">
+						<p class="error" th:if="${#fields.hasErrors('passwords')}" th:errors="*{passwords}">
+						</p>
+					</div>
+				</div>
+				<div class="input_btn">
+					<button class="login_btn" type="submit">
+						ログイン
+					</button>
+					<button class="new_btn" type="button" th:onclick="|location.href='@{/newRegistration}'|">
+						新規登録
+					</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+@charset "UTF-8";
+body {
+font-family: 'Arial', sans-serif;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	margin: 0 auto;
+}
+li {
+	list-style: none;
+}
+a {
+	color: initial;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+h2 {
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.main{
+	text-align: center;
+	box-sizing: border-box;
+}
+.main h2 {
+	font-size: 50px;
+}
+form {
+	display: inline-block;
+	margin: 0 auto;
+}
+.user_name_title {
+	font-size: 25px;
+	text-align: left;
+	margin-bottom: 0;
+}
+.user_name input {
+	display: block;
+	width: 50ch;
+	font-size: 25px;
+	padding: 10px;
+	border: 1px rgba(0, 0, 0, 0.25) solid;
+	border-radius: 5px;
+}
+.email_title {
+	font-size: 25px;
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 0;
+}
+.email input {
+	display: block;
+	width: 50ch;
+	font-size: 25px;
+	padding: 10px;
+	border: 1px rgba(0, 0, 0, 0.25) solid;
+	border-radius: 5px;
+}
+.passwords_title {
+	font-size: 25px;
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 0;
+}
+.passwords input {
+	display: block;
+	width: 50ch;
+	font-size: 25px;
+	padding: 10px;
+	border: 1px rgba(0, 0, 0, 0.25) solid;
+	border-radius: 5px;
+}
+.error {
+	font-size: 20px;
+	text-align: left;
+	margin-top: 0;
+	color: rgba(255, 0, 0, 1);
+}
+.registration_btn {
+	float: left;
+	width: 75px;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(0, 0, 255, 0.7);
+	margin-top: 50px;
+	padding: 10px 10px;
+	border-radius: 5px;
+	border: none;
+}
+.registration_btn:hover {
+	background-color: rgba(0, 0, 255, 1);
+	padding: 10px 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+.back_btn {
+	float: right;
+	width: 75px;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 0, 0, 0.7);
+	margin-top: 50px;
+	padding: 10px 10px;
+	border-radius: 5px;
+	border: none;
+}
+.back_btn:hover {
+	background-color: rgba(255, 0, 0, 1);
+	padding: 10px 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}

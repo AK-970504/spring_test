@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			ユーザー新規登録画面
+		</title>
+		<link th:href="@{/user/css/newRegistration.css}" rel="stylesheet">
+		<script th:src="@{/user/js/newRegistration.js}" type="text/javascript">
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<h2>
+				ユーザー新規登録画面
+			</h2>
+			<!-- ✅ th:object はフォームクラス -->
+			<form th:action="@{/newRegistration}" th:object="${userRegistrationForm}" method="post">
+				<div class="input_text">
+					<!-- ユーザー名 -->
+					<div class="user_name">
+						<p class="user_name_title">
+							ユーザー名
+						</p>
+						<!-- ✅ th:field は *{プロパティ名} -->
+						<input type="text" th:field="*{user_name}" autocomplete="name">
+						<p class="error" th:if="${#fields.hasErrors('user_name')}" th:errors="*{user_name}">
+						</p>
+					</div>
+					<!-- メールアドレス -->
+					<div class="email">
+						<p class="email_title">
+							メールアドレス
+						</p>
+						<input type="text" th:field="*{email}" autocomplete="email">
+						<p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+						</p>
+					</div>
+					<!-- パスワード -->
+					<div class="passwords">
+						<p class="passwords_title">
+							パスワード
+						</p>
+						<input type="password" th:field="*{passwords}" autocomplete="new-passwords">
+						<p class="error" th:if="${#fields.hasErrors('passwords')}" th:errors="*{passwords}">
+						</p>
+					</div>
+					<!-- パスワード(確認用) -->
+					<div class="passwords">
+						<p class="passwords_title">
+							パスワード(確認用)
+						</p>
+						<input type="password" th:field="*{passwordsConfirm}" autocomplete="new-passwords">
+						<!-- コントローラ側で追加したエラー -->
+						<p class="error" th:if="${#fields.hasErrors('passwordsConfirm')}" th:errors="*{passwordsConfirm}">
+						</p>
+					</div>
+				</div>
+				<div class="input_btn">
+					<button type="submit" class="registration_btn">
+						登録
+					</button>
+					<button type="button" class="back_btn" th:onclick="|location.href='@{/userLogin}'|">
+						戻る
+					</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+body {
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	height: 100vh;
+	margin: 10px auto 0 auto;
+	user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.popup {
+	position: fixed;
+	top: 20px;
+	transform: translate(-50%, -50%);
+	background-color: rgba(40, 170, 70, 0.75); /* 緑っぽい成功色 */
+	color: rgba(255, 255, 255, 1);
+	padding: 15px 25px;
+	border-radius: 8px;
+	text-align: center;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+	font-size: 18px;
+	opacity: 0;
+	animation: fadeInOut 3s ease forwards;
+	z-index: 1000;
+}
+@keyframes fadeInOut {
+	0% { opacity: 0; transform: translateY(-10px); }
+	10% { opacity: 1; transform: translateY(0); }
+	80% { opacity: 1; }
+	100% { opacity: 0; transform: translateY(-10px); }
+}
