@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-font-family: 'Arial', sans-serif;
+	font-family: 'Arial', sans-serif;
 	display: flex;
 	justify-content: center;
 	height: 100vh;
