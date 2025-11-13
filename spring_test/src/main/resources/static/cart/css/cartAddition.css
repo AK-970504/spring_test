@@ -14,8 +14,8 @@ h3 {
 	margin: 0 0 10px 0;
 }
 .cart_main {
-	display: grid;
-	grid-template-columns: 880px 400px;
+	display: flex;
+	flex-direction: column;
 	gap: 20px;
 	margin: 0 auto;
 	padding: 5px;
@@ -26,7 +26,7 @@ h3 {
 }
 .cart_list {
 	display: grid;
-	grid-template-columns: 450px 400px;
+	grid-template-columns: 450px 300px;
 	gap: 20px;
 	margin: 0 auto;
 	padding: 5px;
@@ -38,4 +38,24 @@ h3 {
 img {
 	width: 450px;
 	height: 300px;
+}
+section div {
+	margin-bottom: 10px;
+}
+.btn_main {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+}
+button {
+	padding: 10px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(0, 75, 255, 0.7);
+	border: 1px solid rgba(0, 0, 255, 1);
+	border-radius: 5px;
+}
+button:hover {
+	background-color: rgba(0, 75, 255, 1);
 }

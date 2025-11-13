@@ -1,5 +1,6 @@
 package jp.co.sss.spring_test.controller;
 
+import java.util.Map;
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpSession;
@@ -35,14 +36,16 @@ public class CartAdditionController {
 		Model model
 	) {
 		//cartId から商品情報を取得
-		Products productDetail = cartService.findProductByCartId(cartId);
-		if (productDetail == null) {
-			model.addAttribute("errorMessage", "該当する商品が見つかりません。");
-			return "cart/cartAddition";
-		}
-		model.addAttribute("cartId", cartId);
-		model.addAttribute("productDetail", productDetail);
-		return "cart/cartAddition";
+		Map<String, Object> cartDetail = cartService.findCartDetailByCartId(cartId);
+	    if (cartDetail == null) {
+	        model.addAttribute("errorMessage", "該当する商品が見つかりません。");
+	        return "cart/cartAddition";
+	    }
+	    model.addAttribute("cartId", cartId);
+	    model.addAttribute("productDetail", cartDetail.get("product"));
+	    model.addAttribute("quantity", cartDetail.get("quantity"));
+	    model.addAttribute("totalPrice", cartDetail.get("totalPrice"));
+	    return "cart/cartAddition";
 	}
 	//カート追加処理
 	@PostMapping("/cart/add")

@@ -24,14 +24,14 @@
 							<p>
 								商品名：
 							</p>
-							<span>
+							<span th:text="${productDetail.product_name}">
 							</span>
 						</div>
 						<div>
 							<p>
 								個数：
 							</p>
-							<span>
+							<span th:text="${quantity}">
 							</span>
 							<p>
 								個
@@ -41,7 +41,7 @@
 							<p>
 								カートの合計：
 							</p>
-							<span>
+							<span th:text="${totalPrice}">
 							</span>
 							<p>
 								円
@@ -50,13 +50,17 @@
 					</section>
 				</div>
 				<div class="btn_main">
-					<button>
-						レジに進む
-					</button>
-					<button>
-						カートに移動
-					</button>
-					<a th:href="@{/product/product_top}">
+					<a th:href="@{/purchase/purchaseDetail}">
+						<button>
+							レジに進む
+						</button>
+					</a>
+					<a th:href="@{/cart/cartDetail}">
+						<button>
+							カートに移動
+						</button>
+					</a>
+					<a th:href="@{/product/productTop}">
 						<button>
 							TOP画面に戻る
 						</button>
