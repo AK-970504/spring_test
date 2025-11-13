@@ -1,0 +1,43 @@
+@charset "UTF-8";
+body {
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	margin: 0 auto;
+}
+h1 {
+	margin-bottom: 30px;
+}
+p {
+	display: inline-block;
+	margin: 0;
+}
+.confirmation_list {
+	display: flex;
+	margin: 0;
+}
+.btn_list {
+	margin-top: 40px;
+	margin-left: 15px;
+}
+.btn {
+	padding: 5px 10px;
+	font-size: 17.5px;
+	border: 1px solid rgba(255, 255, 255, 0);
+	border-radius: 5px;
+}
+.edit {
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 0, 0, 0.7);
+}
+.edit:hover {
+	background-color: rgba(255, 0, 0, 1);
+}
+.purchase {
+	margin-left: 50px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba( 0, 0, 255,0.7);
+}
+.purchase:hover {
+	background-color: rgba( 0, 0, 255, 1);

@@ -11,20 +11,20 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class UserRegistration {
+public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer user_id;
 	@Column (nullable = false)
 	private String user_name;
-	@Column (nullable = false) 
-	private String user_name_kana = "";
+	@Column (nullable = false)
+	private String user_name_kana;
 	@Column (nullable = false)
 	private String email;
 	@Column (nullable = false)
 	private String phone = "";
 	@Column (nullable = false)
-	private String user_address = "";
+	private String user_address;
 	@Column (nullable = false)
 	private String passwords;
 	@Column (nullable = false)

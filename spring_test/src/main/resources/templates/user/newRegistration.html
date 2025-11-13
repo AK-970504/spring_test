@@ -15,7 +15,7 @@
 				ユーザー新規登録画面
 			</h2>
 			<!-- ✅ th:object はフォームクラス -->
-			<form th:action="@{/newRegistration}" th:object="${userRegistrationForm}" method="post">
+			<form th:action="@{/user/newRegistration}" th:object="${userRegistrationForm}" method="post">
 				<div class="input_text">
 					<!-- ユーザー名 -->
 					<div class="user_name">
@@ -60,7 +60,7 @@
 					<button type="submit" class="registration_btn">
 						登録
 					</button>
-					<button type="button" class="back_btn" th:onclick="|location.href='@{/userLogin}'|">
+					<button type="button" class="back_btn" th:onclick="|location.href='@{/user/userLogin}'|">
 						戻る
 					</button>
 				</div>

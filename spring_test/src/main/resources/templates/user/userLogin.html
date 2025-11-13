@@ -27,11 +27,11 @@
 				</p>
 			</div>
 			<!-- ▼ログインフォーム▼ -->
-			<form th:action="@{/userLogin}" th:object="${userLoginForm}" method="post">
+			<form th:action="@{/user/userLogin}" th:object="${userLoginForm}" method="post">
 				<div class="input_text">
 					<div class="email">
 						<p class="email_title">
-							ルアドレス
+							メールアドレス
 						</p>
 						<input type="email" name="email" th:field="*{email}" autocomplete="email">
 						<p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
@@ -50,7 +50,7 @@
 					<button class="login_btn" type="submit">
 						ログイン
 					</button>
-					<button class="new_btn" type="button" th:onclick="|location.href='@{/newRegistration}'|">
+					<button class="new_btn" type="button" th:onclick="|location.href='@{/user/newRegistration}'|">
 						新規登録
 					</button>
 				</div>

@@ -8,28 +8,27 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import jp.co.sss.spring_test.entity.ProductTop;
+import jp.co.sss.spring_test.entity.Products;
 import jp.co.sss.spring_test.service.ProductTopService;
 
 @Controller
 public class ProductTopController {
-	@Autowired
+	@Autowired                                                                                                                                      
 	private ProductTopService productTopService;
 	//商品トップ画面表示
-	@RequestMapping(path = "/product/productTop", method = RequestMethod.GET)
+	@GetMapping("/product/productTop")
 	public String showProductTop(Model model) {
-		List<ProductTop> productList = productTopService.findAll();
+		List<Products> productList = productTopService.findAll();
 		model.addAttribute("products", productList);
-		return "/product/productTop";
+		return "product/productTop";
 	}
 	//画像取得API(DVに保存されたBLOB画像を返す)
-	@RequestMapping(path = "/product/image/{id}", method = RequestMethod.GET)	
+	@GetMapping("/product/image/{id}")	
 	public ResponseEntity<InputStreamResource> getProductImage(@PathVariable Integer id) {
-		ProductTop product = productTopService.findById(id);
+		Products product = productTopService.findById(id);
 		if (product != null && product.getImg_path() != null) {
 			ByteArrayInputStream bis = new ByteArrayInputStream(product.getImg_path());
 			return ResponseEntity

@@ -4,14 +4,18 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "products")
-public class ProductTop {
+public class Products {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (nullable = false)
@@ -26,8 +30,23 @@ public class ProductTop {
 	private Integer stock;
 	@Column (nullable = false)
 	private String comment;
+	@Lob
 	@Column (nullable = false)
 	private byte[] img_path;
+	//[company_id]を外部キーとして[companies]に紐づける
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "company_id", nullable = false)
+	private Companies company;
+	//[category_id]を外部キーとして[categories]に紐づける
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category_id", nullable = false)
+	private Categpries category;
+	@Column (nullable = false)
+	private Integer include_tax;
+	@Column (nullable = false)
+	private LocalDateTime created_at;
+	@Column (nullable = false)
+	private LocalDateTime updated_at;
 	public Integer getProduct_id() {
 		return product_id;
 	}
@@ -70,17 +89,17 @@ public class ProductTop {
 	public void setImg_path(byte[] img_path) {
 		this.img_path = img_path;
 	}
-	public Integer getCompany_id() {
-		return company_id;
+	public Companies getCompany() {
+		return company;
 	}
-	public void setCompany_id(Integer company_id) {
-		this.company_id = company_id;
+	public void setCompany(Companies company) {
+		this.company = company;
 	}
-	public Integer getCategory_id() {
-		return category_id;
+	public Categpries getCategory() {
+		return category;
 	}
-	public void setCategory_id(Integer category_id) {
-		this.category_id = category_id;
+	public void setCategory(Categpries category) {
+		this.category = category;
 	}
 	public Integer getInclude_tax() {
 		return include_tax;
@@ -100,14 +119,4 @@ public class ProductTop {
 	public void setUpdated_at(LocalDateTime updated_at) {
 		this.updated_at = updated_at;
 	}
-	@Column (nullable = false)
-	private Integer company_id;
-	@Column (nullable = false)
-	private Integer category_id;
-	@Column (nullable = false)
-	private Integer include_tax;
-	@Column (nullable = false)
-	private LocalDateTime created_at;
-	@Column (nullable = false)
-	private LocalDateTime updated_at;
 }
