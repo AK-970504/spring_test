@@ -38,7 +38,7 @@
 							<p>
 								価格：
 							</p>
-							<span th:text="${productDetail.price}">
+							<span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'COMMA', 0, 'POINT')}">
 							</span>
 							<p>
 								円
@@ -48,7 +48,7 @@
 							<p>
 								税込価格：
 							</p>
-							<span th:text="${productDetail.tax_price}">
+							<span th:text="${#numbers.formatDecimal(productDetail.tax_price, 0, 'COMMA', 0, 'POINT')}">
 							</span>
 							<p>
 								円
@@ -58,7 +58,7 @@
 							<p>
 								在庫数：
 							</p>
-							<span th:text="${productDetail.stock}">
+							<span th:text="${#numbers.formatDecimal(productDetail.stock, 0, 'COMMA', 0, 'POINT')}">
 							</span>
 							<p>
 								個
@@ -112,18 +112,14 @@
 					<section>
 						<div>
 							<a th:href="@{'/purchase/purchaseDetail/' + ${productDetail.product_id}}">
-								<button type="button">
-									単品購入
-								</button>
+								単品購入
 							</a>
 						</div>
 					</section>
 					<section>
 						<div>
 							<a th:href="@{/review/reviewPost}">
-								<button type="button">
-									口コミ投稿
-								</button>
+								口コミ投稿
 							</a>
 						</div>
 					</section>
@@ -153,7 +149,7 @@
 								<p>
 									価格：
 								</p>
-								<span th:text="${productDetail.price}">
+								<span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									円
@@ -163,7 +159,7 @@
 								<p>
 									税込価格：
 								</p>
-								<span th:text="${productDetail.tax_price}">
+								<span th:text="${#numbers.formatDecimal(productDetail.tax_price, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									円
@@ -173,7 +169,7 @@
 								<p>
 									在庫表示：
 								</p>
-								<span th:text="${productDetail.stock}">
+								<span th:text="${#numbers.formatDecimal(productDetail.stock, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									個

@@ -6,6 +6,9 @@ body {
 	height: 100vh;
 	margin: 0 auto;
 }
+a {
+	text-decoration: none;
+}
 p, span {
 	display: inline-block;
 	margin: 0;
@@ -45,24 +48,39 @@ img {
 .post_time {
 	margin-top: 37px;
 }
-form {
-	margin: 10px;
+section div {
+	margin-bottom: 10px;
 }
 select {
-	width: 20ch;
-	padding: 2.5px;
+	width: 30ch;
+	padding: 5px;
+	margin-left: 15px;
+	margin-bottom: 10px;
 	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
 }
 .detail_list_02 {
 	border: 1px solid rgba(0, 0, 0, 0.25);
+	padding-left: 10px;
 }
-button {
+.delete {
+	padding: 10px 20px;
+	margin-left: 15px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 0, 75, 0.7);
+	border: 1px solid rgba(255, 0, 0, 1);
+	border-radius: 5px;
+}
+.delete:hover {
+	background-color: rgba(255, 0, 75, 1);
+}
+.advance {
 	padding: 10px;
 	color: rgba(255, 255, 255, 1);
 	background-color: rgba(0, 75, 255, 0.7);
 	border: 1px solid rgba(0, 0, 255, 1);
 	border-radius: 5px;
 }
-button:hover {
+.advance:hover {
 	background-color: rgba(0, 75, 255, 1);
 }

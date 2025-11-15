@@ -17,97 +17,40 @@
 			<div class="detail_main">
 				<div class="detail_list_01">
 					<section>
-						<img alt="商品画像">
+						<img th:src="@{'/cart/image/' + ${product.product_id}}" alt="商品画像">
 					</section>
 					<section>
 						<div>
 							<p>
 								商品名：
 							</p>
-							<span>
-							</span>
-						</div>
+							<span  th:text="${product.product_name}">
+							</span>	
+						</div>	
 						<div>
-							<p>
-								数量
-							</p>
-							<br>
-							<select>
-								<option value="">
-									
-								</option>
-								<option value="1">
-									1
-								</option>
-								<option value="2">
-									2
-								</option>
-								<option value="3">
-									3
-								</option>
-								<option value="4">
-									4
-								</option>
-								<option value="5">
-									5
-								</option>
-								<option value="6">
-									6
-								</option>
-								<option value="7">
-									7
-								</option>
-								<option value="8">
-									8
-								</option>
-								<option value="9">
-									9
-								</option>
-								<option value="10">
-									10
-								</option>
-								<option value="11">
-									11
-								</option>
-								<option value="12">
-									12
-								</option>
-								<option value="13">
-									13
-								</option>
-								<option value="14">
-									14
-								</option>
-								<option value="15">
-									15
-								</option>
-								<option value="16">
-									16
-								</option>
-								<option value="17">
-									17
-								</option>
-								<option value="18">
-									18
-								</option>
-								<option value="19">
-									19
-								</option>
-								<option value="20">
-									20
-								</option>
-							</select>
-						</div>
-						<div>
-							<button>
-								削除
-							</button>
+							<form th:action="@{/cart/deleteFromCart}" method="post">
+								<p>
+									数量：
+								</p>
+								<br>
+								<input type="hidden" name="productId" th:value="${product.product_id}">
+								<select name="removeQuantity">
+									<option value="">
+									</option>
+									<option th:each="num : ${#numbers.sequence(1, quantity)}" th:value="${num}" th:text="${num}">
+									</option>
+								</select>
+								<br>
+								<button class="delete" type="submit">
+									削除
+								</button>
+							</form>
 						</div>
 						<div>
 							<p>
 								価格：
 							</p>
-							<span>
+							<span  th:text="${product.price}">
 							</span>
 							<p>
 								円
@@ -117,7 +60,7 @@
 							<p>
 								消費税込み金額：
 							</p>
-							<span>
+							<span  th:text="${product.tax_price}">
 							</span>
 							<p>
 								円
@@ -132,7 +75,7 @@
 								<p>
 									個数：
 								</p>
-								<span>
+								<span th:text="${#numbers.formatDecimal(quantity, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									個
@@ -142,7 +85,7 @@
 								<p>
 									金額：
 								</p>
-								<span>
+								<span th:text="${#numbers.formatDecimal(product.price * quantity, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									円
@@ -152,7 +95,7 @@
 								<p>
 									消費税込み金額：
 								</p>
-								<span>
+								<span th:text="${#numbers.formatDecimal(product.tax_price * quantity, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									円
@@ -160,9 +103,9 @@
 							</div>
 							<input type="hidden" name="product_id">
 							<div>
-								<button class="" type="submit">
+								<a class="advance" th:href="@{/purchase/purchaseDetail}">
 									レジに進む
-								</button>
+								</a>
 							</div>
 						</form>
 						<p class="message_success">							

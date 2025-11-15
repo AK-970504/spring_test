@@ -51,19 +51,13 @@
 				</div>
 				<div class="btn_main">
 					<a th:href="@{/purchase/purchaseDetail}">
-						<button>
-							レジに進む
-						</button>
+						レジに進む
 					</a>
-					<a th:href="@{/cart/cartDetail}">
-						<button>
-							カートに移動
-						</button>
+					<a th:href="@{'/cart/cartDetail/' + ${cartId}}">
+						カートに移動
 					</a>
 					<a th:href="@{/product/productTop}">
-						<button>
-							TOP画面に戻る
-						</button>
+						TOP画面に戻る
 					</a>
 				</div>
 			</div>
