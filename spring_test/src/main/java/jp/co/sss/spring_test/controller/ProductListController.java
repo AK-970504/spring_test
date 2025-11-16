@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import jp.co.sss.spring_test.entity.Products;
-import jp.co.sss.spring_test.service.ProductTopService;
+import jp.co.sss.spring_test.service.ProductListService;
 
 @Controller
-public class ProductTopController {
+public class ProductListController {
 	@Autowired                                                                                                                                      
-	private ProductTopService productTopService;
+	private ProductListService productListService;
 	//商品トップ画面表示
-	@GetMapping("/product/productTop")
-	public String showProductTop(Model model) {
-		List<Products> productList = productTopService.findAll();
+	@GetMapping("/product/productList")
+	public String showProductList(Model model) {
+		List<Products> productList = productListService.findAll();
 		model.addAttribute("products", productList);
-		return "product/productTop";
+		return "product/productList";
 	}
 	//画像取得API(DVに保存されたBLOB画像を返す)
-	@GetMapping("/product/productTop/image/{id}")	
+	@GetMapping("/product/productList/image/{id}")	
 	public ResponseEntity<InputStreamResource> getProductImage(@PathVariable Integer id) {
-		Products product = productTopService.findById(id);
+		Products product = productListService.findById(id);
 		if (product != null && product.getImg_path() != null) {
 			ByteArrayInputStream bis = new ByteArrayInputStream(product.getImg_path());
 			return ResponseEntity

@@ -61,6 +61,6 @@ public class ReviewPostController {
 		review.setCreatedAt(now);
 		review.setUpdatedAt(now);
 		reviewService.saveReview(review);
-		return "redirect:/product/productDetail/" + productId;
+		return "redirect:/product/productList";
 	}
 }
