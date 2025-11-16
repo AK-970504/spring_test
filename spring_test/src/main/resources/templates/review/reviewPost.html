@@ -14,19 +14,23 @@
 			<h1>
 				口コミ投稿画面
 			</h1>
-			<div class="detail_main">
-				<form>
-					<p for="username">
+			<form th:action="@{/review/reviewPost/{productId}(productId=${product.product_id})}" method="post">
+				<div class="username_main">
+					<p class="username_title">
 						ユーザー名（任意）
 					</p>
-					<input type="text" id="username" name="username" placeholder="ユーザー名">
-					<p for="rating">
+					<input type="text" name="dummy_user_name" placeholder="ユーザー名">
+				</div>
+				<div class="rating_main">
+					<p class="rating_title">
 						評価
 					</p>
-					<select id="rating" name="rating">
+					<select name="rating" required>
+						<option value="">
+						</option>
 						<option value="1">
 							1
-						</option>
+							</option>
 						<option value="2">
 							2
 						</option>
@@ -40,21 +44,37 @@
 							5
 						</option>
 					</select>
-					<p for="email">
+				</div>
+				<div class="email_main">
+					<p class="email_title">
 						メールアドレス
 					</p>
-					<input type="email" id="email" name="email" placeholder="メールアドレス">
-					<p for="comment">
+					<input type="email" name="email" placeholder="メールアドレス">
+				</div>
+				<div class="comment_main">
+					<p class="comment_title">
 						コメント
 					</p>
-					<textarea id="comment" name="comment" rows="4" placeholder="コメントを入力してください">
+					<textarea name="comment" required>
 					</textarea>
-					<input type="file" id="file" name="file">
+				</div>
+				<div class="image_main">
+					<p class="image_title">
+						Choose file
+					</p>
+					<label class="image_btn" for="fileInput">
+						画像を選択
+					</label>
+						<input type="file" id="fileInput" name="review_img_path">
+				</div>
+				<input type="hidden" name="productId" th:value="${product.product_id}">
+				<input type="hidden" name="userId" th:value="${user != null ? user.user_id : 0}">
+				<div class="btn">
 					<button type="submit">
 						投稿
 					</button>
-				</form>
-			</div>
+				</div>
+			</form>
 		</main>
 	</body>
 </html>

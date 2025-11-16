@@ -16,4 +16,10 @@ public class ReviewService {
 	public List<Reviews> getReviewsByProduct(Products product) {
 		return reviewRepository.findByProductsOrderByCreatedAtDesc(product);
 	}
+	public Reviews saveReview(Reviews review) {
+		if (review.getReview_img_path() == null) {
+			review.setReview_img_path(new byte[0]);
+		}
+		return reviewRepository.save(review);
+	}
 }

@@ -6,47 +6,69 @@ body {
 	height: 100vh;
 	margin: 0 auto;
 }
-h1 {
-	user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-}form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.username_main, .rating_main, .email_main, .comment_main, .image_main {
+	margin: 10px 0;
+	padding: 0;
 }
-label {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 4px;
+.image_main {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	width: 100%;
 }
-input[type="text"],
-input[type="email"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+.username_title, .email_title, .comment_title {
+	margin: 0;
 }
-textarea {
-  resize: vertical;
+.rating_title {
+	display: inline-block;
 }
-input[type="file"] {
-  font-size: 14px;
+.image_title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 10px;
+	margin: 0;
+	border-right: 1px solid rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.username_main input, .email_main input {
+	padding: 10px;
+	width: 100ch;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+}
+.image_btn {
+	display: flex;
+	flex: 1;
+	height: 100%;
+	align-items: center;
+	cursor: pointer;
+	padding: 0 5px;
+	background-color: rgba(255, 255, 255, 1);
+}
+#fileInput {
+	display: none;
+}
+.rating_main select {
+	margin-left: 5px;
+	padding: 10px;
+	width: 25ch;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+}
+.btn {
+	text-align: center;
 }
 button {
-  align-self: center;
-  background-color: #4f6ef7;
-  color: #fff;
-  border: none;
-  padding: 10px 30px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+	padding: 5px 10px;
+	margin: 0 auto;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(0, 75, 255, 0.7);
+	border: 1px solid rgba(0, 0, 255, 1);
+	border-radius: 5px;
 }
 button:hover {
-  background-color: #3554d1;
+	background-color: rgba(0, 75, 255, 1);
 }

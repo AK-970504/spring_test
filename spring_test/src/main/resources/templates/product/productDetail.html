@@ -118,7 +118,7 @@
 					</section>
 					<section>
 						<div>
-							<a th:href="@{/review/reviewPost}">
+							<a th:href="@{/review/reviewPost/{productId}(productId=${productDetail.product_id})}">
 								口コミ投稿
 							</a>
 						</div>
