@@ -16,53 +16,55 @@
 			</h1>
 			<div class="detail_main">
 				<div class="detail_list_01">
-					<section>
-						<img th:src="@{'/product/image/' + ${productDetail.product_id}}" alt="商品画像">
-					</section>
-					<section>
-						<div>
-							<p>
-								商品名：
-							</p>
-							<span th:text="${productDetail.product_name}">
-							</span>
+					<section class="product_detail">
+						<div class="product_detail_img">
+							<img th:src="@{'/product/productDetail/image/' + ${productDetail.product_id}}" alt="商品画像">
 						</div>
-						<div>
-							<p>
-								メーカー名：
-							</p>
-							<span th:text="${productDetail.company.company_name}">
-							</span>
-						</div>
-						<div>
-							<p>
-								価格：
-							</p>
-							<span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'COMMA', 0, 'POINT')}">
-							</span>
-							<p>
-								円
-							</p>
-						</div>
-						<div>
-							<p>
-								税込価格：
-							</p>
-							<span th:text="${#numbers.formatDecimal(productDetail.tax_price, 0, 'COMMA', 0, 'POINT')}">
-							</span>
-							<p>
-								円
-							</p>
-						</div>
-						<div>
-							<p>
-								在庫数：
-							</p>
-							<span th:text="${#numbers.formatDecimal(productDetail.stock, 0, 'COMMA', 0, 'POINT')}">
-							</span>
-							<p>
-								個
-							</p>
+						<div class="product_detail_list">
+							<div>
+								<p>
+									商品名：
+								</p>
+								<span th:text="${productDetail.product_name}">
+								</span>
+							</div>
+							<div>
+								<p>
+									メーカー名：
+									</p>
+								<span th:text="${productDetail.company.company_name}">
+								</span>
+							</div>
+							<div>
+								<p>
+									価格：
+								</p>
+								<span th:text="${#numbers.formatDecimal(productDetail.price, 0, 'COMMA', 0, 'POINT')}">
+								</span>
+								<p>
+									円
+								</p>
+							</div>
+							<div>
+								<p>
+									税込価格：
+								</p>
+								<span th:text="${#numbers.formatDecimal(productDetail.tax_price, 0, 'COMMA', 0, 'POINT')}">
+								</span>
+								<p>
+									円
+								</p>
+							</div>
+							<div>
+								<p>
+									在庫数：
+								</p>
+								<span th:text="${#numbers.formatDecimal(productDetail.stock, 0, 'COMMA', 0, 'POINT')}">
+								</span>
+								<p>
+									個
+								</p>
+							</div>
 						</div>
 					</section>
 					<section class="reviews">
@@ -96,10 +98,6 @@
 								<span th:text="${review.rating}">
 								</span>
 							</div>
-						</div>
-					</section>
-					<section class="reviews">
-						<div th:each="review : ${reviews}">
 							<div class="post_time">
 								<p>
 									投稿日時：
@@ -109,15 +107,13 @@
 							</div>
 						</div>
 					</section>
-					<section>
-						<div>
-							<a th:href="@{'/purchase/purchaseDetail/' + ${productDetail.product_id}}">
+					<section class="btn">
+						<div class="purchase_btn">
+							<a th:href="@{/purchase/purchaseDetail}">
 								単品購入
 							</a>
 						</div>
-					</section>
-					<section>
-						<div>
+						<div class="reviews_btn">
 							<a th:href="@{/review/reviewPost/{productId}(productId=${productDetail.product_id})}">
 								口コミ投稿
 							</a>

@@ -6,6 +6,14 @@ body {
 	height: 100vh;
 	margin: 0 auto;
 }
+p {
+	display: inline-block;
+	margin: 0;
+}
+label {
+	display: inline-block;
+	margin: 0;
+}
 .popup {
 	position: fixed;
 	top: 20px;
@@ -47,5 +55,16 @@ img {
 	align-items: stretch;
 }
 section {
+	width: 452px;
 	border: 1px solid rgba(0, 0, 0, 1);
+	box-sizing: border-box;
+}
+.product_name, .company_name, .product_price, .product_tax_price {
+	margin: 0 0 0 10px;
+}
+.product_name {
+	margin-top: 10px ;
+}
+.product_tax_price {
+	margin-bottom: 10px;
 }

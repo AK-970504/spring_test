@@ -25,20 +25,20 @@
 						<label th:text="${product.product_name}">							
 						</label>
 					</div>
-					<div class="maker_name">
-						<label th:text="${product['company_name']}">							
+					<div class="company_name">
+						<label th:text="${product.company.company_name}">							
 						</label>
 					</div>
 					<div class="product_price">
 						<p>
-							\
+							¥
 						</p>
 						<label th:text="${product.price}">							
 						</label>
 					</div>
 					<div class="product_tax_price">
 						<p>
-							\
+							¥
 						</p>
 						<label th:text="${product.tax_price}">							
 						</label>

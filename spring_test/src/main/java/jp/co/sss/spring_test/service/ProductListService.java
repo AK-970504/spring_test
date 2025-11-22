@@ -13,7 +13,7 @@ public class ProductListService {
 	@Autowired
 	private ProductListRepository productListRepository;
 	public List<Products> findAll() {
-		return productListRepository.findAll();
+		return productListRepository.findAllWithCompany();
 	}
 	public Products findById(Integer id) {
 		return productListRepository.findById(id).orElse(null);

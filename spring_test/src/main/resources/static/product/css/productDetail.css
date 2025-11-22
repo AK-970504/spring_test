@@ -8,6 +8,14 @@ body {
 }
 a {
 	text-decoration: none;
+	padding: 10px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(0, 75, 255, 0.7);
+	border: 1px solid rgba(0, 0, 255, 1);
+	border-radius: 5px;
+}
+a:hover {
+	background-color: rgba(0, 75, 255, 1);
 }
 p, span {
 	display: inline-block;
@@ -16,57 +24,72 @@ p, span {
 h3 {
 	margin: 0 0 10px 0;
 }
-.detail_main {
-	display: grid;
-	grid-template-columns: 880px 400px;
-	gap: 20px;
-	margin: 0 auto;
-	padding: 5px;
-	width: max-content;
-	justify-content: start;
-	grid-auto-flow: row;
-	align-items: stretch;
-}
-.detail_list_01 {
-	display: grid;
-	grid-template-columns: 450px 400px;
-	gap: 20px;
-	margin: 0 auto;
-	padding: 5px;
-	width: max-content;
-	justify-content: start;
-	grid-auto-flow: row;
-	align-items: stretch;
-}
 img {
 	width: 450px;
 	height: 300px;
 }
-.reviews h3, .reviews p {
-	font-weight: bold;
+.detail_main {
+	display: flex;
+	gap: 20px;
+	margin: 0 auto;
+	padding: 5px;
+}
+.product_detail {
+	display: flex;
+	gap: 20px;
+	margin: 0 auto 20px auto;
+	padding: 5px;
+}
+.product_detail_list {
+	width: 400px;
+}
+.reviews {
+	width: 880px;
+	font-size: 18px;
+}
+.reviews > div {
+	position: relative;
 }
 .post_time {
-	margin-top: 37px;
+	position: absolute;
+	margin-right: 130px;
+	right: 0;
+	top: 0;
+	white-space: nowrap;
 }
-form {
-	margin: 10px;
+.evaluation {
+	margin-bottom: 20px;
 }
-select {
-	width: 20ch;
-	padding: 2.5px;
-	border: 1px solid rgba(0, 0, 0, 0.25);
+.btn {
+	display: flex;
+	margin-top: 25px;
+}
+.reviews_btn {
+	margin-left: 400px;
 }
 .detail_list_02 {
-	border: 1px solid rgba(0, 0, 0, 0.25);
+	width: 350px;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	padding: 20px 10px;
 }
-a,button[type=submit] {
+button {
+	text-decoration: none;
 	padding: 10px;
+	font-size: 18px;
 	color: rgba(255, 255, 255, 1);
 	background-color: rgba(0, 75, 255, 0.7);
 	border: 1px solid rgba(0, 0, 255, 1);
 	border-radius: 5px;
-	text-decoration: none;
 }
-a:hover, button[type=submit]:hover {
+button:hover {
 	background-color: rgba(0, 75, 255, 1);
+}
+form p, form span {
+	font-size: 18px;
+	margin: 5px;
+}
+select {
+	font-size: 18px;
+	padding: 5px;
+	width: 15ch;
 }
