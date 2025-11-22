@@ -109,9 +109,13 @@
 					</section>
 					<section class="btn">
 						<div class="purchase_btn">
-							<a th:href="@{/purchase/purchaseDetail}">
-								単品購入
-							</a>
+							<form th:action="@{/cart/add}" method="post">
+								<input type="hidden" name="product_id" th:value="${productDetail.product_id}">
+								<input type="hidden" name="quantity" value="1">
+								<button type="submit">
+									単品購入
+								</button>
+							</form>
 						</div>
 						<div class="reviews_btn">
 							<a th:href="@{/review/reviewPost/{productId}(productId=${productDetail.product_id})}">
