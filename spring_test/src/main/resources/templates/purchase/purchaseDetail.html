@@ -14,85 +14,87 @@
 			<h1>
 				購入品詳細画面
 			</h1>
-			<section class="section">
-				<p>
-					＜受け取り場所＞
-				</p>
-				<div class="option">
-					<input type="radio" name="address" checked>
-					<div class="card">
-						<div class="field">
-							<p>
-								名前:
-							</p>
-						</div>
-						<div class="field">
-							<p>
-								住所:
-							</p>
-							<input type="text" placeholder="住所">
-						</div>
-						<div class="field">
-							<p>
-								アパート名等:
-							</p>
-							<input type="text" placeholder="アパート名等">
-						</div>
-					</div>
-				</div>
-				<div class="option">
-					<input type="radio" name="address">
-					<div class="card">
-						<div class="field">
-							<p>
-								名前:
-							</p>
-						</div>
-						<div class="field">
-							<p>
-								住所:
-							</p>
-							<input type="text" placeholder="住所">
-						</div>
-						<div class="field">
-							<p>
-								アパート名等:
-							</p>
-							<input type="text" placeholder="アパート名等">
+			<form th:action="@{/purchase/saveAddress}" method="post">
+				<section class="section">
+					<p>
+						＜受け取り場所＞
+					</p>
+					<div class="option">
+						<input type="radio" name="addressOption" value="1" checked>
+						<div class="card">
+							<div class="field">
+								<p>
+									名前:
+								</p>
+							</div>
+							<div class="field">
+								<p>
+									住所:
+								</p>
+								<input type="text" name="address1" placeholder="住所">
+							</div>
+							<div class="field">
+								<p>
+									アパート名等:
+								</p>
+								<input type="text" name="building1" placeholder="アパート名等">
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section class="section">
-				<p>
-					＜お支払い情報＞
-				</p>
-				<div class="option">
-					<input type="radio" name="payment">
-					<div class="card small">
-						<div class="field">
-							<input type="text" placeholder="カード番号">
-						</div>
-						<div class="field">
-							<input type="text" placeholder="有効期限 DD/YY">
-						</div>
-					</div>
-				</div>
-				<div class="option">
-					<input type="radio" name="payment">
-					<div class="card small">
-						<div class="field">
-							<input type="text" placeholder="カード番号">
-						</div>
-						<div class="field">
-							<input type="text" placeholder="有効期限 DD/YY">
+					<div class="option">
+						<input type="radio" name="addressOption" value="2">
+						<div class="card">
+							<div class="field">
+								<p>
+									名前:
+								</p>
+							</div>
+							<div class="field">
+								<p>
+									住所:
+								</p>
+								<input type="text" name="address2" placeholder="住所">
+							</div>
+							<div class="field">
+								<p>
+									アパート名等:
+								</p>
+								<input type="text" name="building2" placeholder="アパート名等">
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<button class="confirm-btn">
-				確認
-			</button>
+				</section>
+				<section class="section">
+					<p>
+						＜お支払い情報＞
+					</p>
+					<div class="option">
+						<input type="radio" name="payment">
+						<div class="card small">
+							<div class="field">
+								<input type="text" placeholder="カード番号">
+							</div>
+							<div class="field">
+								<input type="text" placeholder="有効期限 DD/YY">
+							</div>
+						</div>
+					</div>
+					<div class="option">
+						<input type="radio" name="payment">
+						<div class="card small">
+							<div class="field">
+								<input type="text" placeholder="カード番号">
+							</div>
+							<div class="field">
+								<input type="text" placeholder="有効期限 DD/YY">
+							</div>
+						</div>
+					</div>
+				</section>
+				<button type="submit" class="confirm-btn">
+					確認
+				</button>
+			</form>
 		</main>
 	</body>
 </html>
