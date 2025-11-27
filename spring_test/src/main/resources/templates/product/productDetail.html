@@ -109,7 +109,7 @@
 					</section>
 					<section class="btn">
 						<div class="purchase_btn">
-							<form th:action="@{/cart/add}" method="post">
+							<form th:action="@{/purchase/purchaseDetail}" method="post">
 								<input type="hidden" name="product_id" th:value="${productDetail.product_id}">
 								<input type="hidden" name="quantity" value="1">
 								<button type="submit">

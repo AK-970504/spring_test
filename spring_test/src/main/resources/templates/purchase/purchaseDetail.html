@@ -15,6 +15,7 @@
 				購入品詳細画面
 			</h1>
 			<form th:action="@{/purchase/saveAddress}" method="post">
+				<input type="hidden" name="cartId" th:value="${cartId != null ? cartId : ''}">
 				<section class="section">
 					<p>
 						＜受け取り場所＞

@@ -22,42 +22,42 @@
 					<p>
 						名前：
 					</p>
-					<span>
+					<span th:text="${user.user_name}">
 					</span>
 				</div>
 				<div>
 					<p>
 						住所：
 					</p>
-					<span>
+					<span th:text="${address}">
 					</span>
 				</div>
 				<div>
 					<p>
 						アパート名：
 					</p>
-					<span>
+					<span th:text="${building}">
 					</span>
 				</div>
 				<div>
 					<p>
 						商品名：
 					</p>
-					<span>
+					<span th:text="${product.product_name}">
 					</span>
 				</div>
 				<div>
 					<p>
 						個数：
 					</p>
-					<span>
+					<span th:text="${quantity}">
 					</span>
 				</div>
 				<div>
 					<p>
 						合計金額：
 					</p>
-					<span>
+					<span th:text="${totalPrice}">
 					</span>
 				</div>
 			</div>
