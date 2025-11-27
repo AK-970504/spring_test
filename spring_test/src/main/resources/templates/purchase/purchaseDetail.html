@@ -15,13 +15,13 @@
 				購入品詳細画面
 			</h1>
 			<form th:action="@{/purchase/saveAddress}" method="post">
-				<input type="hidden" name="cartId" th:value="${cartId != null ? cartId : ''}">
+				<input type="hidden" name="cartId" th:value="${cart.cart_id}">
 				<section class="section">
 					<p>
 						＜受け取り場所＞
 					</p>
 					<div class="option">
-						<input type="radio" name="addressOption" value="1" checked>
+						<input type="radio" name="addressOption" value="1" th:checked="${paymentOption == '1'}">
 						<div class="card">
 							<div class="field">
 								<p>
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 					<div class="option">
-						<input type="radio" name="addressOption" value="2">
+						<input type="radio" name="addressOption" value="2" th:checked="${paymentOption == '2'}">
 						<div class="card">
 							<div class="field">
 								<p>
@@ -70,24 +70,24 @@
 						＜お支払い情報＞
 					</p>
 					<div class="option">
-						<input type="radio" name="payment">
+						<input type="radio" name="payment" value="1" th:checked="${paymentOption == '1'}">
 						<div class="card small">
 							<div class="field">
-								<input type="text" placeholder="カード番号">
-							</div>
+						    	<input type="text" name="paymentNumber1" th:value="${paymentNumber}" placeholder="カード番号">
+						    </div>
 							<div class="field">
-								<input type="text" placeholder="有効期限 DD/YY">
+								<input type="text" name="paymentExpire1" th:value="${paymentExpire}" placeholder="有効期限 DD/YY">
 							</div>
 						</div>
 					</div>
 					<div class="option">
-						<input type="radio" name="payment">
+						<input type="radio" name="payment" value="2" th:checked="${paymentOption == '2'}">
 						<div class="card small">
 							<div class="field">
-								<input type="text" placeholder="カード番号">
+						    	<input type="text" name="paymentNumber2" placeholder="カード番号">
 							</div>
 							<div class="field">
-								<input type="text" placeholder="有効期限 DD/YY">
+								<input type="text" name="paymentExpire2" placeholder="有効期限 DD/YY">
 							</div>
 						</div>
 					</div>

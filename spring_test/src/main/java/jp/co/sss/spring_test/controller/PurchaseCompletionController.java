@@ -39,6 +39,7 @@ public class PurchaseCompletionController {
 			if (parts.length > 1) building = parts[1];
 		}
 		Integer totalPrice = product.getTax_price() * quantity;
+		model.addAttribute("cart", cart);
 		model.addAttribute("user", user);
 		model.addAttribute("address", address);
 		model.addAttribute("building", building);
