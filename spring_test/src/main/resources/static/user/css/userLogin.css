@@ -106,11 +106,8 @@ form {
 	padding: 10px 10px;
 	border-radius: 5px;
 	border: none;
+	cursor: pointer;
 }
 .new_btn:hover {
 	background-color: rgba(0, 0, 255, 1);
-	padding: 10px 10px;
-	border-radius: 5px;
-	border: none;
-	cursor: pointer;
 }

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.footer_html, .footer_body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+footer#footer {
+	display: block;
+	text-align: center;
+    background-color: rgba(50, 50, 75, 1);
+}
+.footer_title h1 {
+	margin: 0 auto;
+	padding: 70px 0 10px 0;
+	color: rgba(255, 255, 255, 1);
+}
