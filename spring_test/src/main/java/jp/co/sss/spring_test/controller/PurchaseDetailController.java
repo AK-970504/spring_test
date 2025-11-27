@@ -82,6 +82,6 @@ public class PurchaseDetailController {
 		loginUser.setUser_address(fullAddress);
 		userRepository.save(loginUser);
 		session.setAttribute("loginUser", loginUser);
-		return "redirect:/purchase/purchaseCompletion/" + cartId;
+		return "redirect:/purchase/purchaseConfirmation/" + cartId;
 	}
 }

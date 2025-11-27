@@ -50,7 +50,7 @@
 					</section>
 				</div>
 				<div class="btn_main">
-					<a th:href="@{/purchase/purchaseDetail}">
+					<a th:href="@{'/purchase/purchaseDetail/' + ${cartId}}">
 						レジに進む
 					</a>
 					<a th:href="@{'/cart/cartDetail/' + ${cartId}}">

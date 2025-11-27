@@ -37,9 +37,10 @@ public class CartDetailController {
 		model.addAttribute("product", product);
 		model.addAttribute("quantity", cartDetail.get("quantity"));
 		model.addAttribute("totalPrice", cartDetail.get("totalPrice"));
+		model.addAttribute("cartId", cartId);
 		return "cart/cartDetail";
 	}
-	@PostMapping("/cart/deleteFromCart")
+	@PostMapping("/cart/cartDetail")
 	public String deleteFormCart(
 		@RequestParam Integer productId,
 		@RequestParam Integer removeQuantity,
@@ -55,9 +56,11 @@ public class CartDetailController {
 			return "cart/cartDetail";
 		}
 		Products product = (Products) cartDetail.get("product");
+		Integer cartId = (Integer) cartDetail.get("cartId");
 		model.addAttribute("product", product);
 		model.addAttribute("quantity", cartDetail.get("quantity"));
 		model.addAttribute("totalPrice", cartDetail.get("totalPrice"));
+		model.addAttribute("cartId", cartId);
 	    return "cart/cartDetail";
 	}
 }

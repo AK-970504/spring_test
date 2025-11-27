@@ -108,14 +108,16 @@
 						</div>
 					</section>
 					<section class="btn">
-						<div class="purchase_btn">
-							<form th:action="@{/purchase/purchaseDetail}" method="post">
-								<input type="hidden" name="product_id" th:value="${productDetail.product_id}">
-								<input type="hidden" name="quantity" value="1">
-								<button type="submit">
-									単品購入
-								</button>
-							</form>
+						<div class="btn_main">
+							<div class="purchase_btn">
+								<form th:action="@{/purchase/purchaseDetail}" method="post">
+									<input type="hidden" name="product_id" th:value="${productDetail.product_id}">
+									<input type="hidden" name="quantity" value="1">
+									<button type="submit">
+										単品購入
+									</button>
+								</form>
+							</div>
 						</div>
 						<div class="reviews_btn">
 							<a th:href="@{/review/reviewPost/{productId}(productId=${productDetail.product_id})}">
