@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div class="btn_list">
-				<button class="btn edit">
+				<button class="btn edit" th:onclick="'location.href=\'/purchase/purchaseDetail/' + ${product.cart_id} + '\';'">
 					編集
 				</button>
 				<button class="btn purchase">

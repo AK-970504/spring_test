@@ -20,7 +20,17 @@ public class PurchaseDetailController {
 	@GetMapping("/purchase/purchaseDetail/{cartId}")
 	public String showPurchaseDetail(
 		@PathVariable("cartId") Integer cartId,
-		Model model) {
+		Model model,
+		HttpSession session) {
+		session.setAttribute("purchaseCartId", cartId);
+		Users loginUser = (Users) session.getAttribute("loginUser");
+		if (loginUser != null && loginUser.getUser_address() != null) {
+			String[] parts = loginUser.getUser_address().split(" ", 2);
+			String address = parts[0];
+			String building = parts.length > 1 ? parts[1] : "";
+			model.addAttribute("address", address);
+			model.addAttribute("building", building);
+		}
 		return "purchase/purchaseDetail";
 	}
 	@PostMapping("/purchase/saveAddress")
@@ -35,6 +45,10 @@ public class PurchaseDetailController {
 		if (loginUser == null) {
 			return "redirect:/user/userLogin";
 		}
+		Integer cartId = (Integer) session.getAttribute("purchaseCartId");
+		if (cartId == null) {
+			return "redirect:/";
+		}
 		String fullAddress = "";
 		if ("1".equals(addressOption)) {
 			fullAddress = address1;
@@ -46,6 +60,6 @@ public class PurchaseDetailController {
 		loginUser.setUser_address(fullAddress);
 		userRepository.save(loginUser);
 		session.setAttribute("loginUser", loginUser);
-		return "redirect:/purchase/purchaseCompletion";
+		return "redirect:/purchase/purchaseCompletion/" + cartId;
 	}
 }
