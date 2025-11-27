@@ -62,12 +62,12 @@
 				</div>
 			</div>
 			<div class="btn_list">
-				<button class="btn edit" th:onclick="'location.href=\'' + @{/purchase/purchaseDetail/{id}(id=${cart.cart_id})} + '\';'">
+				<a class="btn edit" th:href="@{/purchase/purchaseDetail/{id}(id=${cart.cart_id})}">
 					編集
-				</button>
-				<button class="btn purchase">
+				</a>
+				<a class="btn purchase" th:href="@{/purchase/purchaseCompletion/{id}(id=${cart.cart_id})}">
 					購入
-				</button>
+				</a>
 			</div>
 		</main>
 	</body>

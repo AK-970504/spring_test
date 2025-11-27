@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			購入確認
+			購入完了
 		</title>
 		<link th:href="@{/purchase/css/purchaseCompletion.css}" rel="stylesheet">
 		<script th:src="@{/purchase/js/purchaseCompletion.js}" type="text/javascript">
@@ -12,62 +12,58 @@
 	<body>
 		<main>
 			<h1>
-				購入確認画面
+				購入完了画面
 			</h1>
-			<div class="confirmation_title">
-				<h2>
-					購入確認
-				</h2>
-				<div class="confirmation_list">
-					<p>
-						名前：
-					</p>
-					<span th:text="${user.user_name}">
-					</span>
-				</div>
+			<div class="completion_main">
 				<div>
-					<p>
-						住所：
-					</p>
-					<span th:text="${address}">
-					</span>
+					<section class="completion_list">
+						<h2>
+							購入確認
+						</h2>
+						<div class="completion_img">
+							<p>
+								画像：
+							</p>
+							<img th:src="@{${productImg}}" alt="商品画像">
+						</div>
+						<div class="completion_product_name">
+							<p>
+								商品名：
+							</p>
+							<span th:text="${productName}">
+							</span>
+						</div>
+						<div class="completion_quantity">
+							<p>
+								数量：
+							</p>
+							<span th:text="${quantity}">
+							</span>
+						</div>
+						<div class="completion_tax_price">
+							<p>
+								税込価格：
+							</p>
+							<span th:text="${totalPrice}">
+							</span>
+						</div>
+						<div class="completion_address">
+							<p>
+								住所：
+							</p>
+							<span th:text="${address}">
+							</span>
+						</div>
+					</section>
+					<section class="completion_btn">
+						<h2>
+							注文完了
+						</h2>
+						<a class="back_btn" th:href="@{/product/productTop}">
+							TOP画面に戻る
+						</a>
+					</section>
 				</div>
-				<div>
-					<p>
-						アパート名：
-					</p>
-					<span th:text="${building}">
-					</span>
-				</div>
-				<div>
-					<p>
-						商品名：
-					</p>
-					<span th:text="${product.product_name}">
-					</span>
-				</div>
-				<div>
-					<p>
-						個数：
-					</p>
-					<span th:text="${quantity}">
-					</span>
-				</div>
-				<div>
-					<p>
-						合計金額：
-					</p>
-					<span th:text="${totalPrice}">
-					</span>
-				</div>
-			</div>
-			<div class="btn_list">
-				<button class="btn edit" th:onclick="'location.href=\'' + @{/purchase/purchaseDetail/{id}(id=${cart.cart_id})} + '\';'">
-					編集
-				</button>
-				<button class="btn purchase">
-					購入
-				</button>
 			</div>
 		</main>
 	</body>

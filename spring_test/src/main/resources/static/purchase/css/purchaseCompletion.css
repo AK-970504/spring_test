@@ -9,35 +9,44 @@ body {
 h1 {
 	margin-bottom: 30px;
 }
+a {
+	text-decoration: none;
+}
 p {
 	display: inline-block;
 	margin: 0;
 }
-.confirmation_list {
+.completion_main > div {
 	display: flex;
-	margin: 0;
+	gap: 10px;
 }
-.btn_list {
-	margin-top: 40px;
-	margin-left: 15px;
+section {
+	width: 600px;
 }
-.btn {
-	padding: 5px 10px;
-	font-size: 17.5px;
-	border: 1px solid rgba(255, 255, 255, 0);
-	border-radius: 5px;
+.completion_img {
+	display: flex;
 }
-.edit {
-	color: rgba(255, 255, 255, 1);
-	background-color: rgba(255, 0, 0, 0.7);
+.completion_img p {
+	height: 300px;
 }
-.edit:hover {
-	background-color: rgba(255, 0, 0, 1);
+img {
+	width: 450px;
+	height: 300px;
 }
-.purchase {
+.completion_btn {
+margin-top: 75px;
+text-align: center;
+}
+.completion_btn h2 {
+	margin: 0 auto 400px auto;
+}
+.back_btn {
+	padding: 10px 15px;
 	margin-left: 50px;
 	color: rgba(255, 255, 255, 1);
 	background-color: rgba( 0, 0, 255,0.7);
+	border-radius: 5px;
 }
-.purchase:hover {
+.back_btn:hover {
 	background-color: rgba( 0, 0, 255, 1);
+}
