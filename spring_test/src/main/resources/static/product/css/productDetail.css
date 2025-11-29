@@ -1,9 +1,10 @@
 @charset "UTF-8";
 body {
 	font-family: 'Arial', sans-serif;
+}
+main {
 	display: flex;
 	justify-content: center;
-	height: 100vh;
 	margin: 0 auto;
 }
 a {
@@ -61,7 +62,7 @@ img {
 .evaluation {
 	margin-bottom: 20px;
 }
-.btn {
+.product_btn {
 	display: flex;
 	margin-top: 25px;
 }
@@ -74,7 +75,7 @@ img {
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	padding: 20px 10px;
 }
-button {
+.cart_addition {
 	text-decoration: none;
 	padding: 10px;
 	font-size: 18px;
@@ -83,14 +84,26 @@ button {
 	border: 1px solid rgba(0, 0, 255, 1);
 	border-radius: 5px;
 }
-button:hover {
+.cart_addition:hover {
+	background-color: rgba(0, 75, 255, 1);
+}
+.single_purchase {
+	text-decoration: none;
+	padding: 10px;
+	font-size: 18px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(0, 75, 255, 0.7);
+	border: 1px solid rgba(0, 0, 255, 1);
+	border-radius: 5px;
+}
+.single_purchase:hover {
 	background-color: rgba(0, 75, 255, 1);
 }
 form p, form span {
 	font-size: 18px;
 	margin: 5px;
 }
-select {
+.cart_quantity {
 	font-size: 18px;
 	padding: 5px;
 	width: 15ch;

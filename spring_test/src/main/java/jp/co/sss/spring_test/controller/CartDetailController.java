@@ -40,8 +40,9 @@ public class CartDetailController {
 		model.addAttribute("cartId", cartId);
 		return "cart/cartDetail";
 	}
-	@PostMapping("/cart/cartDetail")
+	@PostMapping("/cart/cartDetail/{cartId}")
 	public String deleteFormCart(
+		@PathVariable("cartId") Integer cartId,
 		@RequestParam Integer productId,
 		@RequestParam Integer removeQuantity,
 		@SessionAttribute("loginUser") Users user,
@@ -50,17 +51,16 @@ public class CartDetailController {
 			return "redirect:/user/userLogin";
 		}
 		cartService.reduceQuantity(user, productId, removeQuantity);
-		Map<String, Object> cartDetail = cartService.findCartDetailByUserAndProductId(user, productId);
-		if(cartDetail == null) {
+		Map<String, Object> cartDetail = cartService.findCartDetailByCartId(cartId);
+		if (cartDetail == null) {
 			model.addAttribute("message", "カートから削除されました");
 			return "cart/cartDetail";
 		}
 		Products product = (Products) cartDetail.get("product");
-		Integer cartId = (Integer) cartDetail.get("cartId");
 		model.addAttribute("product", product);
 		model.addAttribute("quantity", cartDetail.get("quantity"));
 		model.addAttribute("totalPrice", cartDetail.get("totalPrice"));
 		model.addAttribute("cartId", cartId);
-	    return "cart/cartDetail";
+		return "cart/cartDetail";
 	}
 }

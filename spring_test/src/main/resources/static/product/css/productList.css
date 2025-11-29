@@ -1,9 +1,10 @@
 @charset "UTF-8";
 body {
 	font-family: 'Arial', sans-serif;
+}
+main {
 	display: flex;
 	justify-content: center;
-	height: 100vh;
 	margin: 0 auto;
 }
 p {

@@ -6,15 +6,19 @@
 			口コミ投稿
 		</title>
 		<link th:href="@{/review/css/reviewPost.css}" rel="stylesheet">
+		<link th:href="@{/common/css/header.css}" rel="stylesheet">
+		<link th:href="@{/common/css/footer.css}" rel="stylesheet">
 		<script th:src="@{/review/js/reviewPost.js}" type="text/javascript">
 		</script>
 	</head>
 	<body>
+		<header th:replace="common/header :: layout-header">
+		</header>
 		<main>
-			<h1>
-				口コミ投稿画面
-			</h1>
 			<form th:action="@{/review/reviewPost/{productId}(productId=${product.product_id})}" method="post">
+				<h1>
+					口コミ投稿画面
+				</h1>
 				<div class="username_main">
 					<p class="username_title">
 						ユーザー名（任意）
@@ -76,5 +80,7 @@
 				</div>
 			</form>
 		</main>
+		<footer th:replace="common/footer :: layout-footer">
+		</footer>
 	</body>
 </html>

@@ -1,9 +1,10 @@
 @charset "UTF-8";
 body {
 	font-family: 'Arial', sans-serif;
+}
+main {
 	display: flex;
 	justify-content: center;
-	height: 100vh;
 	margin: 0 auto;
 }
 h1 {
@@ -35,6 +36,7 @@ img {
 }
 .completion_btn {
 margin-top: 75px;
+margin-bottom: 50px;
 text-align: center;
 }
 .completion_btn h2 {

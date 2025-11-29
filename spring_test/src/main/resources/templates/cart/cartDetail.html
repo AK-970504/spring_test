@@ -6,86 +6,56 @@
 			カート詳細
 		</title>
 		<link th:href="@{/cart/css/cartDetail.css}" rel="stylesheet">
+		<link th:href="@{/common/css/header.css}" rel="stylesheet">
+		<link th:href="@{/common/css/footer.css}" rel="stylesheet">
 		<script th:src="@{/cart/js/cartDetail.js}" type="text/javascript">
 		</script>
 	</head>
 	<body>
+		<header th:replace="common/header :: layout-header">
+		</header>
 		<main>
-			<h1>
-				カート詳細画面
-			</h1>
-			<div class="detail_main">
-				<div class="detail_list_01">
-					<section>
-						<img th:src="@{'/cart/image/' + ${product.product_id}}" alt="商品画像">
-					</section>
-					<section>
-						<div>
-							<p>
-								商品名：
-							</p>
-							<span  th:text="${product.product_name}">
-							</span>	
-						</div>	
-						<div>
-							<form th:action="@{/cart/deleteFromCart}" method="post">
-								<p>
-									数量：
-								</p>
-								<br>
-								<input type="hidden" name="productId" th:value="${product.product_id}">
-								<select name="removeQuantity">
-									<option value="">
-									</option>
-									<option th:each="num : ${#numbers.sequence(1, quantity)}" th:value="${num}" th:text="${num}">
-									</option>
-								</select>
-								<br>
-								<button class="delete" type="submit">
-									削除
-								</button>
-							</form>
-						</div>
-						<div>
-							<p>
-								価格：
-							</p>
-							<span  th:text="${product.price}">
-							</span>
-							<p>
-								円
-							</p>
-						</div>
-						<div>
-							<p>
-								消費税込み金額：
-							</p>
-							<span  th:text="${product.tax_price}">
-							</span>
-							<p>
-								円
-							</p>
-						</div>
-					</section>
-				</div>
-				<div class="detail_list_02">
-					<section>
-						<form>
+			<div>
+				<h1>
+					カート詳細画面
+				</h1>
+				<div class="detail_main">
+					<div class="detail_list_01">
+						<section>
+							<img th:src="@{'/cart/image/' + ${product.product_id}}" alt="商品画像">
+						</section>
+						<section>
 							<div>
 								<p>
-									個数：
+									商品名：
 								</p>
-								<span th:text="${#numbers.formatDecimal(quantity, 0, 'COMMA', 0, 'POINT')}">
-								</span>
-								<p>
-									個
-								</p>
+								<span  th:text="${product.product_name}">
+								</span>	
+							</div>	
+							<div>
+								<form th:action="@{/cart/cartDetail/{cartId}(cartId=${cartId})}" method="post">
+									<p>
+										数量：
+									</p>
+									<br>
+									<input type="hidden" name="productId" th:value="${product.product_id}">
+									<select class="product_quantity" name="removeQuantity">
+										<option value="">
+										</option>
+										<option th:each="num : ${#numbers.sequence(1, quantity)}" th:value="${num}" th:text="${num}">
+										</option>
+									</select>
+									<br>
+									<button class="delete" type="submit">
+										削除
+									</button>
+								</form>
 							</div>
 							<div>
 								<p>
-									金額：
+									価格：
 								</p>
-								<span th:text="${#numbers.formatDecimal(product.price * quantity, 0, 'COMMA', 0, 'POINT')}">
+								<span  th:text="${product.price}">
 								</span>
 								<p>
 									円
@@ -95,24 +65,62 @@
 								<p>
 									消費税込み金額：
 								</p>
-								<span th:text="${#numbers.formatDecimal(product.tax_price * quantity, 0, 'COMMA', 0, 'POINT')}">
+								<span  th:text="${product.tax_price}">
 								</span>
 								<p>
 									円
 								</p>
 							</div>
-							<input type="hidden" name="product_id">
-							<div>
-								<a class="advance" th:href="@{'/purchase/purchaseDetail/' + ${cartId}}">
-									レジに進む
-								</a>
-							</div>
-						</form>
-						<p class="message_success">							
-						</p>
-					</section>
+						</section>
+					</div>
+					<div class="detail_list_02">
+						<section>
+							<form>
+								<div>
+									<p>
+										個数：
+									</p>
+									<span th:text="${#numbers.formatDecimal(quantity, 0, 'COMMA', 0, 'POINT')}">
+									</span>
+									<p>
+										個
+									</p>
+								</div>
+								<div>
+									<p>
+										金額：
+									</p>
+									<span th:text="${#numbers.formatDecimal(product.price * quantity, 0, 'COMMA', 0, 'POINT')}">
+									</span>
+									<p>
+										円
+									</p>
+								</div>
+								<div>
+									<p>
+										消費税込み金額：
+									</p>
+									<span th:text="${#numbers.formatDecimal(product.tax_price * quantity, 0, 'COMMA', 0, 'POINT')}">
+									</span>
+									<p>
+										円
+									</p>
+								</div>
+								<input type="hidden" name="product_id">
+								<div>
+									<a class="advance" th:href="@{'/purchase/purchaseDetail/' + ${cartId}}">
+										レジに進む
+									</a>
+								</div>
+							</form>
+							<p class="message_success">							
+							</p>
+						</section>
+					</div>
 				</div>
 			</div>
 		</main>
+		<footer th:replace="common/footer :: layout-footer">
+		</footer>
 	</body>
 </html>

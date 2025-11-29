@@ -6,69 +6,77 @@
 			購入確認
 		</title>
 		<link th:href="@{/purchase/css/purchaseConfirmation.css}" rel="stylesheet">
+		<link th:href="@{/common/css/header.css}" rel="stylesheet">
+		<link th:href="@{/common/css/footer.css}" rel="stylesheet">
 		<script th:src="@{/purchase/js/purchaseConfirmation.js}" type="text/javascript">
 		</script>
 	</head>
 	<body>
+		<header th:replace="common/header :: layout-header">
+		</header>
 		<main>
-			<h1>
-				購入確認画面
-			</h1>
-			<div class="confirmation_title">
-				<h2>
-					購入確認
-				</h2>
-				<div class="confirmation_list">
-					<p>
-						名前：
-					</p>
-					<span th:text="${user.user_name}">
-					</span>
+			<div>
+				<h1>
+					購入確認画面
+				</h1>
+				<div class="confirmation_title">
+					<h2>
+							購入確認
+					</h2>
+					<div class="confirmation_list">
+						<p>
+							名前：
+						</p>
+						<span th:text="${user.user_name}">
+						</span>
+					</div>
+					<div>
+						<p>
+							住所：
+						</p>
+						<span th:text="${address}">
+						</span>
+					</div>
+					<div>
+						<p>
+							アパート名：
+						</p>
+						<span th:text="${building}">
+						</span>
+					</div>
+					<div>
+						<p>
+							商品名：
+						</p>
+						<span th:text="${product.product_name}">
+						</span>
+					</div>
+					<div>
+						<p>
+							個数：
+						</p>
+						<span th:text="${quantity}">
+						</span>
+					</div>
+					<div>
+						<p>
+							合計金額：
+						</p>
+						<span th:text="${totalPrice}">
+						</span>
+					</div>
 				</div>
-				<div>
-					<p>
-						住所：
-					</p>
-					<span th:text="${address}">
-					</span>
+				<div class="btn_list">
+					<a class="btn edit" th:href="@{/purchase/purchaseDetail/{id}(id=${cart.cart_id})}">
+						編集
+					</a>
+					<a class="btn purchase" th:href="@{/purchase/purchaseCompletion/{id}(id=${cart.cart_id})}">
+						購入
+					</a>
 				</div>
-				<div>
-					<p>
-						アパート名：
-					</p>
-					<span th:text="${building}">
-					</span>
-				</div>
-				<div>
-					<p>
-						商品名：
-					</p>
-					<span th:text="${product.product_name}">
-					</span>
-				</div>
-				<div>
-					<p>
-						個数：
-					</p>
-					<span th:text="${quantity}">
-					</span>
-				</div>
-				<div>
-					<p>
-						合計金額：
-					</p>
-					<span th:text="${totalPrice}">
-					</span>
-				</div>
-			</div>
-			<div class="btn_list">
-				<a class="btn edit" th:href="@{/purchase/purchaseDetail/{id}(id=${cart.cart_id})}">
-					編集
-				</a>
-				<a class="btn purchase" th:href="@{/purchase/purchaseCompletion/{id}(id=${cart.cart_id})}">
-					購入
-				</a>
 			</div>
 		</main>
+		<footer th:replace="common/footer :: layout-footer">
+		</footer>
 	</body>
 </html>

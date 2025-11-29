@@ -1,9 +1,10 @@
 @charset "UTF-8";
 body {
 	font-family: 'Arial', sans-serif;
+}
+main {
 	display: flex;
 	justify-content: center;
-	height: 100vh;
 	margin: 0 auto;
 }
 .username_main, .rating_main, .email_main, .comment_main, .image_main {
@@ -68,6 +69,7 @@ textarea {
 }
 .btn {
 	text-align: center;
+	margin-bottom: 50px;
 }
 button {
 	padding: 5px 10px;
