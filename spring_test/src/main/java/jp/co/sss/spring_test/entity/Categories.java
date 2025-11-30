@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "companies")
-public class Categpries {
+public class Categories {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (nullable = false)

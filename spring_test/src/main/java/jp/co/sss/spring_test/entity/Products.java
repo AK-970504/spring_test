@@ -40,7 +40,7 @@ public class Products {
 	//[category_id]を外部キーとして[categories]に紐づける
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = false)
-	private Categpries category;
+	private Categories category;
 	@Column (nullable = false)
 	private Integer include_tax;
 	@Column (nullable = false)
@@ -95,10 +95,10 @@ public class Products {
 	public void setCompany(Companies company) {
 		this.company = company;
 	}
-	public Categpries getCategory() {
+	public Categories getCategory() {
 		return category;
 	}
-	public void setCategory(Categpries category) {
+	public void setCategory(Categories category) {
 		this.category = category;
 	}
 	public Integer getInclude_tax() {
