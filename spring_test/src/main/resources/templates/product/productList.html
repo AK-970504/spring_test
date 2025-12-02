@@ -8,11 +8,9 @@
 		<link th:href="@{/product/css/productList.css}" rel="stylesheet">
 		<link th:href="@{/common/css/header.css}" rel="stylesheet">
 		<link th:href="@{/common/css/footer.css}" rel="stylesheet">
-		<script th:src="@{/product/js/productList.js}" type="text/javascript">
-		</script>
 	</head>
 	<body>
-		<header th:replace="common/header :: layout-header">
+		<header th:replace="common/header :: layout_header">
 		</header>
 		<main>
 			<div class="main">
@@ -52,7 +50,9 @@
 				</div>
 			</div>
 		</main>
-		<footer th:replace="common/footer :: layout-footer">
+		<footer th:replace="common/footer :: layout_footer">
 		</footer>
+		<script th:src="@{/product/js/productList.js}">
+		</script>
 	</body>
 </html>

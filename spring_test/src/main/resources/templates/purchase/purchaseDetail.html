@@ -12,7 +12,7 @@
 		</script>
 	</head>
 	<body>
-		<header th:replace="common/header :: layout-header">
+		<header th:replace="common/header :: layout_header">
 		</header>
 		<main>
 			<form th:action="@{/purchase/saveAddress}" method="post">
@@ -96,12 +96,12 @@
 						</div>
 					</div>
 				</section>
-				<button type="submit" class="confirm-btn">
+				<button type="submit" class="confirm_btn">
 					確認
 				</button>
 			</form>
 		</main>
-		<footer th:replace="common/footer :: layout-footer">
+		<footer th:replace="common/footer :: layout_footer">
 		</footer>
 	</body>
 </html>

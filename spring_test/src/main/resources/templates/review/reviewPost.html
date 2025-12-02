@@ -12,7 +12,7 @@
 		</script>
 	</head>
 	<body>
-		<header th:replace="common/header :: layout-header">
+		<header th:replace="common/header :: layout_header">
 		</header>
 		<main>
 			<form th:action="@{/review/reviewPost/{productId}(productId=${product.product_id})}" method="post">
@@ -80,7 +80,7 @@
 				</div>
 			</form>
 		</main>
-		<footer th:replace="common/footer :: layout-footer">
+		<footer th:replace="common/footer :: layout_footer">
 		</footer>
 	</body>
 </html>

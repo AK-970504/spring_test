@@ -8,11 +8,10 @@
 		<link th:href="@{/product/css/productTop.css}" rel="stylesheet">
 		<link th:href="@{/common/css/header.css}" rel="stylesheet">
 		<link th:href="@{/common/css/footer.css}" rel="stylesheet">
-		<script th:src="@{/product/js/productTop.js}" type="text/javascript">
-		</script>
+		<script th:src="@{/product/js/productTop.js}" type="text/javascript"></script>
 	</head>
 	<body>
-		<header th:replace="common/header :: layout-header">
+		<header th:replace="common/header :: layout_header">
 		</header>
 		<main>
 			<div id="popup" class="popup" th:if="${loginSuccess}" th:text="${loginSuccess}">
@@ -35,7 +34,7 @@
 				</div>
 			</div>
 		</main>
-		<footer th:replace="common/footer :: layout-footer">
+		<footer th:replace="common/footer :: layout_footer">
 		</footer>
 	</body>
 </html>

@@ -7,17 +7,35 @@
 		</title>
 	</head>
 	<body>
-		<header id="header" th:fragment="layout-header">
+		<header id="header" th:fragment="layout_header">
 			<div class="header_title">
 				<h1>
 					Cytech EC.
 				</h1>
 			</div>
 			<div class="header_search">
-				<input placeholder="商品名">
-				<select placeholder="ファッション">
+				<input id="search_name" placeholder="商品名">
+				<select id="search_sort">
+					<option value="fashion">
+						ファッション
+					</option>
+					<option value="category">
+						カテゴリー順
+					</option>
+					<option value="company">
+						会社名順
+					</option>
+					<option value="priceAsc">
+						価格昇順
+					</option>
+					<option value="priceDesc">
+						価格降順
+					</option>
+					<option value="new">
+						新着順
+					</option>
 				</select>
-				<button>
+				<button id="search_btn">
 					検索
 				</button>
 			</div>

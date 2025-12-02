@@ -56,7 +56,7 @@ h2 {
 	border: 1px solid #e0e0e0;
 	border-radius: 5px;
 }
-.confirm-btn {
+.confirm_btn {
 	display: block;
 	margin: 30px auto;
 	background: #4a67ff;
@@ -67,6 +67,6 @@ h2 {
 	cursor: pointer;
 	transition: background 0.3s;
 }
-.confirm-btn:hover {
+.confirm_btn:hover {
 	background: #354dcc;
 }
