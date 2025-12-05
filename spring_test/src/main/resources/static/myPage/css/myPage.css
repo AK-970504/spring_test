@@ -1,0 +1,11 @@
+@charset "UTF-8";
+body {
+	font-family: 'Arial', sans-serif;
+	justify-content: center;
+	margin: 0 auto;
+	width: 100%;
+}
+main {
+	display: flex;
+	justify-content: center;
+}

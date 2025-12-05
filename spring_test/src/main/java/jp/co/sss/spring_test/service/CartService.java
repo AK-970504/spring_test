@@ -2,6 +2,7 @@ package jp.co.sss.spring_test.service;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -20,19 +21,17 @@ public class CartService {
 	private CartsRepository cartsRepository;
 	@Autowired
 	private ProductDetailRepository productDetailRepository;
-	//cartIdからproductIdとquantityを取得
+	// cartIdからproductIdとquantityを取得
 	public Map<String, Object> findCartDetailByCartId(Integer cartId) {
 		Optional<Carts> cartOpt = cartsRepository.findById(cartId);
 		if (cartOpt.isEmpty()) return null;
-		//cart から product_id と quantity を取得
 		Carts cart = cartOpt.get();
+		// product が取得できない場合は null を返す
 		Products product = productDetailRepository.findById(cart.getProduct().getProduct_id()).orElse(null);
 		if (product == null) return null;
-		//合計金額を計算
 		Integer taxPrice = product.getTax_price();
 		Integer quantity = cart.getQuantity();
 		Integer totalPrice = taxPrice * quantity;
-		//結果をMapに格納
 		Map<String, Object> result = new HashMap<>();
 		result.put("product", product);
 		result.put("quantity", quantity);
@@ -40,19 +39,18 @@ public class CartService {
 		return result;
 	}
 	public Integer addToCart(Users user, Integer productId, Integer quantity) {
-		//ProductsEntityを取得
 		Products product = productDetailRepository.findById(productId).orElse(null);
 		if (product == null) return null;
-		//既に同じproduct_idとuser_idが存在しているか確認
-		Optional<Carts> existingCartOpt = cartsRepository.findByUserAndProduct(user, product);
+		List<Carts> existingCartList = cartsRepository.findByUserAndProduct(user, product);
 		Carts carts;
-		if (existingCartOpt.isPresent()) {
-			//既存→数量を加算
-			carts = existingCartOpt.get();
+		// ===== FIX: 条件を正しくする =====
+		if (!existingCartList.isEmpty()) {
+			// 既存がある -> 数量を加算
+			carts = existingCartList.get(0);
 			carts.setQuantity(carts.getQuantity() + quantity);
 			carts.setUpdated_at(LocalDateTime.now());
 		} else {
-			//新規→新しく作成
+			// 新規 -> 新しく作成
 			carts = new Carts();
 			carts.setUser(user);
 			carts.setProduct(product);
@@ -60,28 +58,32 @@ public class CartService {
 			carts.setCreated_at(LocalDateTime.now());
 			carts.setUpdated_at(LocalDateTime.now());
 		}
-		//保存
 		Carts savedCart = cartsRepository.save(carts);
-		//登録された cart_id を返す
 		return savedCart.getCart_id();
 	}
 	public void reduceQuantity(Users user, Integer productId, Integer removeQuantity) {
-		Optional<Carts> cartOpt = cartsRepository.findByUserAndProductId(user, productId);
-		if(cartOpt.isPresent()) {
-			Carts cart = cartOpt.get();
-			int newQuantity = cart.getQuantity() - removeQuantity;
-			if(newQuantity <= 0) {
-				cartsRepository.delete(cart);
-			} else {
-				cart.setQuantity(newQuantity);
-				cartsRepository.save(cart);
-			}
+		// safety: null or non-positive removeQuantity は無視
+		if (removeQuantity == null || removeQuantity <= 0) return;
+		List<Carts> cartList = cartsRepository.findByUserAndProductId(user, productId);
+		if (cartList == null || cartList.isEmpty()) {
+			// 対象カートが見つからなければ何もしない
+			return;
+		}
+		Carts cart = cartList.get(0);
+		int newQuantity = cart.getQuantity() - removeQuantity;
+		if (newQuantity <= 0) {
+			// 完全に削除
+			cartsRepository.delete(cart);
+		} else {
+			cart.setQuantity(newQuantity);
+			cart.setUpdated_at(LocalDateTime.now());
+			cartsRepository.save(cart);
 		}
 	}
 	public Map<String, Object> findCartDetailByUserAndProductId(Users user, Integer productId) {
-		Optional<Carts> cartOpt = cartsRepository.findByUserAndProductId(user, productId);
+		List<Carts> cartOpt = cartsRepository.findByUserAndProductId(user, productId);
 		if (cartOpt.isEmpty()) return null;
-		Carts cart = cartOpt.get();
+		Carts cart = cartOpt.get(0);
 		Products product = productDetailRepository.findById(cart.getProduct().getProduct_id()).orElse(null);
 		if (product == null) return null;
 		Integer quantity = cart.getQuantity();

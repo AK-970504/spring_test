@@ -40,7 +40,7 @@
 									<br>
 									<input type="hidden" name="productId" th:value="${product.product_id}">
 									<select class="product_quantity" name="removeQuantity">
-										<option value="">
+										<option value="" selected>
 										</option>
 										<option th:each="num : ${#numbers.sequence(1, quantity)}" th:value="${num}" th:text="${num}">
 										</option>

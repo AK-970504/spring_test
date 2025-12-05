@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			マイページ
+		</title>
+		<link th:href="@{/myPage/css/myPage.css}" rel="stylesheet">
+		<link th:href="@{/common/css/header.css}" rel="stylesheet">
+		<link th:href="@{/common/css/footer.css}" rel="stylesheet">
+	</head>
+	<body>
+		<header th:replace="common/header :: layout_header">
+		</header>
+		<main>
+			<h1>
+				マイページ
+			</h1>
+		</main>
+		<footer th:replace="common/footer :: layout_footer">
+		</footer>
+	</body>
+</html>

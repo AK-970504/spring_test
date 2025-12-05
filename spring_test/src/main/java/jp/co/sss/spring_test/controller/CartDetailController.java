@@ -30,9 +30,13 @@ public class CartDetailController {
 		Map<String, Object> cartDetail = cartService.findCartDetailByCartId(cartId);
 		if (cartDetail == null) {
 			model.addAttribute("errorMessage", "カート情報が見つかりません。");
-			return "/cart/cartDetail";
+			// product が null のときのテンプレート表示を想定
+			model.addAttribute("product", null);
+			model.addAttribute("quantity", 0);
+			model.addAttribute("totalPrice", 0);
+			model.addAttribute("cartId", cartId);
+			return "cart/cartDetail";
 		}
-		//商品情報取得
 		Products product = (Products) cartDetail.get("product");
 		model.addAttribute("product", product);
 		model.addAttribute("quantity", cartDetail.get("quantity"));
@@ -44,23 +48,19 @@ public class CartDetailController {
 	public String deleteFormCart(
 		@PathVariable("cartId") Integer cartId,
 		@RequestParam Integer productId,
-		@RequestParam Integer removeQuantity,
-		@SessionAttribute("loginUser") Users user,
+		@RequestParam(required = false) Integer removeQuantity,
+		@SessionAttribute(value = "loginUser", required = false) Users user,
 		Model model) {
 		if (user == null) {
 			return "redirect:/user/userLogin";
 		}
-		cartService.reduceQuantity(user, productId, removeQuantity);
-		Map<String, Object> cartDetail = cartService.findCartDetailByCartId(cartId);
-		if (cartDetail == null) {
-			model.addAttribute("message", "カートから削除されました");
-			return "cart/cartDetail";
+		if (removeQuantity == null) {
+			// 選択されていない場合はフラッシュメッセージ等にするのがベストですが、
+			// 簡単にクエリパラメータでメッセージを渡して GET 側で表示する方法を取ります。
+			return "redirect:/cart/cartDetail/" + cartId + "?msg=selectQuantity";
 		}
-		Products product = (Products) cartDetail.get("product");
-		model.addAttribute("product", product);
-		model.addAttribute("quantity", cartDetail.get("quantity"));
-		model.addAttribute("totalPrice", cartDetail.get("totalPrice"));
-		model.addAttribute("cartId", cartId);
-		return "cart/cartDetail";
+		cartService.reduceQuantity(user, productId, removeQuantity);
+		// POST-Redirect-GET: 最新の状態を表示させる
+		return "redirect:/cart/cartDetail/" + cartId;
 	}
 }

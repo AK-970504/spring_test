@@ -41,7 +41,7 @@
 			</div>
 			<div class="header_user_log">
 				<div class="header_my_page">
-					<a class="btn_my_page">
+					<a class="btn_my_page" th:href="@{/myPage/myPage}">
 						マイページ
 					</a>
 				</div>
@@ -54,9 +54,9 @@
 						</span>
 					</div>
 					<div class="header_btn">
-						<button>
+						<a th:href="@{/logout}">
 							ログアウト
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>

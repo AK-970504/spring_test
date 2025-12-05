@@ -56,7 +56,6 @@ header#header {
 	color: rgba(255, 255, 255, 1);
 	background-color: rgba(0, 0, 255, 0.7);
 	padding: 15px 15px;
-	border-radius: 5px;
 	border: none;
 	cursor: pointer;
 }
@@ -73,7 +72,6 @@ header#header {
 .header_user, .header_btn {
 	display: inline-block;
 	color: rgba(255, 255, 255, 1);
-	border: 1px rgba(0, 0, 0, 0.25) solid;
 }
 .header_user {
 	padding: 5px 10px 0 10px;
@@ -86,12 +84,15 @@ header#header {
 	margin: 0;
 	padding: 0;
 }
-.header_btn button {
+.header_btn a {
 	display: inline-block;
-	border: 1px solid rgba(50, 50, 75, 1);
 	background-color: rgba(50, 50, 75, 1);
 	color: rgba(255, 255, 255, 1);
 	font-size: 16px;
 	padding: 0 10px 5px 10px;
 	cursor: pointer;
+	text-decoration: none;
+}
+.btn_my_page {
+	text-decoration: none;
 }
