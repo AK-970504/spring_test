@@ -18,14 +18,12 @@ import jp.co.sss.spring_test.service.ProductListService;
 public class ProductListController {
 	@Autowired                                                                                                                                      
 	private ProductListService productListService;
-	//商品トップ画面表示
 	@GetMapping("/product/productList")
 	public String showProductList(Model model) {
 		List<Products> productList = productListService.findAll();
 		model.addAttribute("products", productList);
 		return "product/productList";
 	}
-	//画像取得API(DVに保存されたBLOB画像を返す)
 	@GetMapping("/product/productList/image/{id}")	
 	public ResponseEntity<InputStreamResource> getProductImage(@PathVariable Integer id) {
 		Products product = productListService.findById(id);
