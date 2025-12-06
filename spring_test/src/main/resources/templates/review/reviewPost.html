@@ -15,7 +15,7 @@
 		<header th:replace="common/header :: layout_header">
 		</header>
 		<main>
-			<form th:action="@{/review/reviewPost/{productId}(productId=${product.product_id})}" method="post">
+			<form th:action="@{/review/reviewPost/{productId}(productId=${product.product_id})}" method="post" enctype="multipart/form-data">
 				<h1>
 					口コミ投稿画面
 				</h1>
@@ -59,8 +59,7 @@
 					<p class="comment_title">
 						コメント
 					</p>
-					<textarea name="comment" rows="5" required onfocus="this.setSelectionRange(0,0)">
-					</textarea>
+					<textarea name="comment" rows="5" required onfocus="this.setSelectionRange(0,0)"></textarea>
 				</div>
 				<div class="image_main">
 					<p class="image_title">

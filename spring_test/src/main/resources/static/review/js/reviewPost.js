@@ -9,3 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 });
+document.addEventListener('DOMContentLoaded', () => {
+	const textarea = document.querySelector('textarea[name="comment"]');
+	textarea.addEventListener('focus', () => {
+		setTimeout(() => {
+			textarea.setSelectionRange(0, 0);
+		}, 0);
+	});
+});

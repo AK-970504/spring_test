@@ -40,7 +40,7 @@ public class ReviewPostController {
 		@RequestParam(name="dummy_user_name", required=false) String dummyUserName,
 		@RequestParam(name="comment") String comment,
 		@RequestParam(name="rating") Integer rating,
-		@RequestParam(name="file", required=false) MultipartFile file,
+		@RequestParam(name="review_img_path", required=false) MultipartFile file,
 		HttpSession session
     ) throws IOException {
 		Reviews review = new Reviews();
