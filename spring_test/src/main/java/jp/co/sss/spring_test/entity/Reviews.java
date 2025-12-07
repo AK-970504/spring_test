@@ -19,7 +19,7 @@ public class Reviews {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (nullable = false)
-	private Integer Review_id;;
+	private Integer Review_id;
 	//[user_id]を外部キーとして[users]に紐づける
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
