@@ -1,7 +1,5 @@
 package jp.co.sss.spring_test.controller;
 
-import java.util.Base64;
-
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,15 +40,11 @@ public class PurchaseCompletionController {
 			if(parts.length > 1) building = parts[1];
 		}
 		Integer totalPrice = product.getTax_price() * quantity;
-		byte[] imgBytes = product.getImg_path();
-		String base64Img = "";
-		if(imgBytes != null && imgBytes.length > 0) {
-			base64Img = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imgBytes);
-		}
+		String productImgPath = product.getImg_path();
 		model.addAttribute("quantity", quantity);
 		model.addAttribute("address", address + " " + building);
 		model.addAttribute("productName", product.getProduct_name());
-		model.addAttribute("productImg", base64Img);
+		model.addAttribute("productImg", productImgPath);
 		model.addAttribute("totalPrice", totalPrice);
 		return "/purchase/purchaseCompletion";
 	}

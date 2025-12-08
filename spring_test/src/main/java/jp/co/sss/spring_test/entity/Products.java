@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -30,14 +29,11 @@ public class Products {
 	private Integer stock;
 	@Column (nullable = false)
 	private String comment;
-	@Lob
 	@Column (nullable = false)
-	private byte[] img_path;
-	//[company_id]を外部キーとして[companies]に紐づける
+	private String img_path;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "company_id", nullable = false)
 	private Companies company;
-	//[category_id]を外部キーとして[categories]に紐づける
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = false)
 	private Categories category;
@@ -83,10 +79,10 @@ public class Products {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public byte[] getImg_path() {
+	public String getImg_path() {
 		return img_path;
 	}
-	public void setImg_path(byte[] img_path) {
+	public void setImg_path(String img_path) {
 		this.img_path = img_path;
 	}
 	public Companies getCompany() {

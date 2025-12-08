@@ -28,7 +28,7 @@
 				<div class="product_list">
 					<section th:each="product : ${products}">
 						<a th:href="@{'/product/productDetail/' + ${product.product_id}}">
-							<img th:src="@{'/product/productTop/image/' + ${product.product_id}}" alt="商品画像">
+							<img th:src="@{${product.img_path}}" alt="商品画像">
 						</a>
 					</section>
 				</div>

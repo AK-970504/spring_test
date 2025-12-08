@@ -21,7 +21,7 @@
 				</h1>
 				<div class="cart_list">
 					<section>
-						<img th:src="@{'/cart/image/' + ${productDetail.product_id}}" alt="商品画像">
+						<img th:src="@{${productDetail.img_path}}" alt="商品画像">
 					</section>
 					<section>
 						<div>

@@ -21,7 +21,7 @@ function updateProductList(products) {
 		<section>
 			<div>
 				<a href="/spring_test/product/productDetail/${p.product_id}">
-					<img src="/spring_test/product/productList/image/${p.product_id}" alt="商品画像">
+					<img src="${p.img_path}" alt="商品画像">
 				</a>
 			</div>
 			<div class="product_name">

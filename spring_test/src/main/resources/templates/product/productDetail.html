@@ -22,7 +22,7 @@
 					</h1>
 					<section class="product_detail">
 						<div class="product_detail_img">
-							<img th:src="@{'/product/productDetail/image/' + ${productDetail.product_id}}" alt="商品画像">
+							<img th:src="@{${productDetail.img_path}}" alt="商品画像">
 						</div>
 						<div class="product_detail_list">
 							<div>
