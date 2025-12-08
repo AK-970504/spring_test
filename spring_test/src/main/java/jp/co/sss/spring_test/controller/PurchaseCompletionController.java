@@ -19,7 +19,7 @@ import jp.co.sss.spring_test.repository.CartsRepository;
 public class PurchaseCompletionController {
 	@Autowired
 	private CartsRepository cartsRepository;
-	@GetMapping("/purchase/purchaseCompletion/{cartId}")
+	@GetMapping("/purchase/purchaseComplete/{cartId}")
 	public String showPurchaseCompletion(
 		@PathVariable("cartId") Integer cartId,
 		HttpSession session,
