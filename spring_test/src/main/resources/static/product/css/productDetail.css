@@ -7,7 +7,7 @@ main {
 	justify-content: center;
 	margin: 0 auto;
 }
-a {
+.review_btn {
 	text-decoration: none;
 	padding: 15px;
 	font-size: 18px;

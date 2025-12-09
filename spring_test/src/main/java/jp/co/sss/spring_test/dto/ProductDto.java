@@ -8,13 +8,17 @@ public class ProductDto {
 	private Integer price;
 	private Integer tax_price;
 	private String company_name;
+	private String img_path;
 	public ProductDto(Products p) {
 		this.product_id = p.getProduct_id();
 		this.product_name = p.getProduct_name();
 		this.price = p.getPrice();
-		this.tax_price = p.getPrice() * 110 / 100;
+		this.tax_price = p.getTax_price();
 		if (p.getCompany() != null) {
 			this.company_name = p.getCompany().getCompany_name();
+		}
+		if (p.getImg_path() != null) {
+			 this.img_path = p.getImg_path();
 		}
 	}
 	public Integer getProduct_id() {
@@ -46,5 +50,11 @@ public class ProductDto {
 	}
 	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
+	}
+	public String getImg_path() {
+		return img_path;
+	}
+	public void setImg_path(String img_path) {
+		this.img_path = img_path;
 	}
 }

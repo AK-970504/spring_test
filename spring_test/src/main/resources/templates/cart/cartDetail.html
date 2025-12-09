@@ -22,7 +22,7 @@
 				<div class="detail_main">
 					<div class="detail_list_01">
 						<section>
-							<img th:src="@{'/cart/image/' + ${product.product_id}}" alt="商品画像">
+							<img th:src="@{${product.img_path}}" alt="商品画像">
 						</section>
 						<section>
 							<div>
@@ -55,7 +55,7 @@
 								<p>
 									価格：
 								</p>
-								<span  th:text="${product.price}">
+								<span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									円
@@ -65,7 +65,7 @@
 								<p>
 									消費税込み金額：
 								</p>
-								<span  th:text="${product.tax_price}">
+								<span th:text="${#numbers.formatDecimal(product.tax_price, 0, 'COMMA', 0, 'POINT')}">
 								</span>
 								<p>
 									円

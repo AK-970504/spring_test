@@ -36,14 +36,14 @@
 							<p>
 								¥
 							</p>
-							<label th:text="${product.price}">							
+							<label th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')}">
 							</label>
 						</div>
 						<div class="product_tax_price">
 							<p>
 								¥
 							</p>
-							<label th:text="${product.tax_price}">							
+							<label th:text="${#numbers.formatDecimal(product.tax_price, 0, 'COMMA', 0, 'POINT')}">
 							</label>
 						</div>
 					</section>

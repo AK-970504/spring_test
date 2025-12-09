@@ -35,7 +35,7 @@
 							<p>
 								個数：
 							</p>
-							<span th:text="${quantity}">
+							<span th:text="${#numbers.formatDecimal(quantity, 0, 'COMMA', 0, 'POINT')}">
 							</span>
 							<p>
 								個
@@ -45,7 +45,7 @@
 							<p>
 								カートの合計：
 							</p>
-							<span th:text="${totalPrice}">
+							<span th:text="${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 0, 'POINT')}">
 							</span>
 							<p>
 								円
