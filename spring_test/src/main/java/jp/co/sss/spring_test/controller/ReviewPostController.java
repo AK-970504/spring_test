@@ -1,7 +1,12 @@
 package jp.co.sss.spring_test.controller;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+
+import javax.imageio.ImageIO;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -42,19 +47,31 @@ public class ReviewPostController {
 		@RequestParam(name="rating") Integer rating,
 		@RequestParam(name="review_img_path", required=false) MultipartFile file,
 		HttpSession session
-    ) throws IOException {
+	) throws IOException {
 		Reviews review = new Reviews();
 		review.setDummy_user_name(dummyUserName);
 		review.setComment(comment);
 		review.setRating(rating);
 		if (file != null && !file.isEmpty()) {
-			review.setReview_img_path(file.getBytes());
+			String originalFilename = file.getOriginalFilename();
+			String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
+			String newFileName = "review_" + System.currentTimeMillis() + ext;
+			String saveDir = "C:/Users/hkdha/git/spring_test/spring_test/src/main/resources/static/review/img/";
+			String filePath = saveDir + newFileName;
+			BufferedImage originalImage = ImageIO.read(file.getInputStream());
+			BufferedImage resizedImage = new BufferedImage(450, 300, BufferedImage.TYPE_INT_RGB);
+			Graphics2D g2 = resizedImage.createGraphics();
+			g2.drawImage(originalImage, 0, 0, 450, 300, null);
+			g2.dispose();
+			String format = ext.replace(".", "");
+			ImageIO.write(resizedImage, format, new File(filePath));
+			review.setReview_img_path(newFileName);
 		}
 		Users loginUser = (Users) session.getAttribute("loginUser");
-		review.setUsers(loginUser);
 		if (loginUser == null) {
 			return "redirect:/user/userLogin";
 		}
+		review.setUsers(loginUser);
 		Products product = productDetailService.findByIdWithCompany(productId);
 		review.setProducts(product);
 		LocalDateTime now = LocalDateTime.now();

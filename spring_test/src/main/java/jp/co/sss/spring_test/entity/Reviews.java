@@ -9,7 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -34,9 +33,8 @@ public class Reviews {
 	private String comment;
 	@Column (nullable = false)
 	private String dummy_user_name;
-	@Lob
 	@Column (nullable = false)
-	private byte[] review_img_path;
+	private String review_img_path;
 	@Column (name = "created_at", nullable = false)
 	private LocalDateTime createdAt;
 	@Column (name = "updated_at", nullable = false)
@@ -77,10 +75,10 @@ public class Reviews {
 	public void setDummy_user_name(String dummy_user_name) {
 		this.dummy_user_name = dummy_user_name;
 	}
-	public byte[] getReview_img_path() {
+	public String getReview_img_path() {
 		return review_img_path;
 	}
-	public void setReview_img_path(byte[] review_img_path) {
+	public void setReview_img_path(String review_img_path) {
 		this.review_img_path = review_img_path;
 	}
 	public LocalDateTime getCreatedAt() {
